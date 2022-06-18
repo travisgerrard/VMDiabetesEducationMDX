@@ -29,11 +29,11 @@ const authReducer = (state, action) => {
 };
 
 const tryLocalSignin = (dispatch) => async () => {
-  const token = localStorage.getItem('token');
+  // const token = localStorage.getItem('token');
   const disclaimer = localStorage.getItem('disclaimer');
 
-  if (token && disclaimer) {
-    dispatch({ type: 'signin', payload: token });
+  if (disclaimer) {
+    // dispatch({ type: 'signin', payload: token });
     dispatch({ type: 'disclaimer' });
 
     // navigate('Main');

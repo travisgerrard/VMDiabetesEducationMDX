@@ -140,42 +140,42 @@ export default function MainReadingView({ children }) {
 
   if (state.isLoading) return null;
 
-  if (state.token === null) {
-    return <AccessCodeScreen />;
+  // if (state.token === null) {
+  //   return <AccessCodeScreen />;
+  // } else {
+  if (state.disclaimer === null) {
+    return <DisclaimerPage />;
   } else {
-    if (state.disclaimer === null) {
-      return <DisclaimerPage />;
-    } else {
-      return (
-        <>
-          <NavBar>
-            <NavBarText>
-              Aa:{' '}
-              <NavBarButton
-                onClick={() => changeTextSize({ textSize, isIncrease: true })}
-                grayOutButton={increaseTextSizeGrayOut}
-              >
-                +
-              </NavBarButton>{' '}
-              /{' '}
-              <NavBarButton
-                onClick={() => changeTextSize({ textSize, isIncrease: false })}
-                grayOutButton={decreaseTextSizeGrayOut}
-              >
-                -
-              </NavBarButton>
-            </NavBarText>
-            <Link href="/">
-              <NavBarButton style={{ cursor: 'pointer' }}>Close</NavBarButton>
-            </Link>
-          </NavBar>
-          <BodyContainer>
-            <TextContainer>
-              <MDXProvider components={mdComponents}>{children}</MDXProvider>
-            </TextContainer>
-          </BodyContainer>
-        </>
-      );
-    }
+    return (
+      <>
+        <NavBar>
+          <NavBarText>
+            Aa:{' '}
+            <NavBarButton
+              onClick={() => changeTextSize({ textSize, isIncrease: true })}
+              grayOutButton={increaseTextSizeGrayOut}
+            >
+              +
+            </NavBarButton>{' '}
+            /{' '}
+            <NavBarButton
+              onClick={() => changeTextSize({ textSize, isIncrease: false })}
+              grayOutButton={decreaseTextSizeGrayOut}
+            >
+              -
+            </NavBarButton>
+          </NavBarText>
+          <Link href="/">
+            <NavBarButton style={{ cursor: 'pointer' }}>Close</NavBarButton>
+          </Link>
+        </NavBar>
+        <BodyContainer>
+          <TextContainer>
+            <MDXProvider components={mdComponents}>{children}</MDXProvider>
+          </TextContainer>
+        </BodyContainer>
+      </>
+    );
   }
+  // }
 }

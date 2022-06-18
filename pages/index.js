@@ -11,15 +11,16 @@ export default function Index() {
     tryLocalSignin();
   }, []);
 
+  console.log(state.disclaimer);
   if (state.isLoading) return null;
 
-  if (state.token === null) {
-    return <AccessCodeScreen />;
+  // if (state.token === null) {
+  //   return <AccessCodeScreen />;
+  // } else {
+  if (state.disclaimer === null) {
+    return <DisclaimerPage />;
   } else {
-    if (state.disclaimer === null) {
-      return <DisclaimerPage />;
-    } else {
-      return <VerticalHalfPaginator />;
-    }
+    return <VerticalHalfPaginator />;
   }
+  // }
 }
